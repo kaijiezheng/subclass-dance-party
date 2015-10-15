@@ -3,6 +3,7 @@ var makeBouncyDancer = function(top, left, timeBetweenSteps) {
   this.$node.addClass("bouncy");
   this.$node.append("<img src='carlton.gif'>");
   this.top = top;
+  this.left = left;
 };
 
 makeBouncyDancer.prototype = Object.create(makeDancer.prototype);
@@ -21,8 +22,3 @@ makeBouncyDancer.prototype.step = function() {
     top: this.$node.position().top + change + "px"
   });
 };
-
-makeBouncyDancer.prototype.lineUp = function() {
-  this.top = 470;
-  this.$node.css("top", "470px");
-}

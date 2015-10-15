@@ -44,24 +44,19 @@ $(document).ready(function() {
       var dancerOne = (1 << n-1-index);
       if ((available & dancerOne) === 0) {
         available = available | dancerOne;
-        var dancerTwo;
-        var dancerTwoIndex;
-        var min;
+        var dancerTwo, dancerTwoIndex, min;
         for (var i = index+1; i < n; i++) {
           dancerTwo = (1 << n-1-i);
-          console.log("before");
           var distance = Math.sqrt(Math.pow(dancers[index].$node.offset().top - dancers[i].$node.offset().top, 2) + Math.pow(dancers[index].$node.offset().left - dancers[i].$node.offset().left, 2));
-          console.log("after");
-          console.log(distance);
           if (min === undefined || distance < min) {
             min = distance
             dancerTwoIndex = i;
           }
         }
-        console.log(dancerTwoIndex);
-        available = available | dancerTwo;
-        dancers[dancerTwoIndex].$node.css("top", dancers[index].$node.top);
-        dancers[dancerTwoIndex].$node.css("left", dancers[index].$node.left + 50);
+        if (dancerTwoIndex) {
+          available = available | (1 << n-1-dancerTwoIndex);
+          dancers[dancerTwoIndex].setPosition(dancers[index].$node.offset().top, dancers[index].$node.offset().left + 50);
+        }
       }
     });
   });
@@ -70,29 +65,3 @@ $(document).ready(function() {
     $(this).css('width', '350px');
   });
 });
-
-
-// dancer 1 & available -> check if it is 0
-
-// // var n = number of dancers
-// // var available = 0;
-// // for loop through window.dancers
-//   // var dancerOne = (1 << n-1-index)
-//   // if (available & dancerOne === 0)
-//     // dancerOne available -> save index
-//     // update available = available | dancerOne
-//     // calculate distance to all other dancers
-//       // var dancerTwo;
-//       // var dancerTwoIndex;
-//       // for loop through window.dancers
-//         //dancerTwo = (1 << n-1-index)
-//         // grab coordinates
-//         // calculate distance
-//         // if (distance < min    &&    dancerTwo & available === 0 )
-//           // var min = current minimum distance
-//           // dancerTwoIndex = index
-//       // move dancerTwo to dancerOne coordinates -> if dancerTwo exists
-//       // update available = available | dancerTwo
-//   // else if dancerOne not available -> do nothing
-
-

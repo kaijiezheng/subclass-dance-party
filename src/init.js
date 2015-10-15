@@ -34,13 +34,11 @@ $(document).ready(function() {
   $('.lineUpButton').on('click', function(event) {
     console.log(window.dancers);
     dancers.forEach(function(dancer) {
-      console.log("line up");
       dancer.lineUp();
     });
   });
 
   $('body').on('mouseover', '.shark img', function(event) {
-    $(this).css('width', '400px');
+    $(this).css('width', '350px');
   });
 });
-

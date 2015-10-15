@@ -42,12 +42,9 @@ body, a:link, a:visited, a:active{
   width: 200px;
 }
 .dancer.shark img {
-  width: 200px;
+  width: 250px;
 }
 
 a:hover {
   color: purple;
 }
-span:hover {
-  width: 500px;
-};

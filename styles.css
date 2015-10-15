@@ -3,12 +3,20 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+
+.container {
+  max-width: 1200px;
+}
+
+.container img {
+  max-width: 100%;
+}
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
@@ -21,7 +29,25 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
   position:absolute;
 }
+.dancer.blinky{
+  border:10px solid red;
+  border-radius:10px;
+}
+.dancer.bouncy img {
+  width: 100px;
+}
+.dancer.shuffle img {
+  width: 200px;
+}
+.dancer.shark img {
+  width: 200px;
+}
+
+a:hover {
+  color: purple;
+}
+span:hover {
+  width: 500px;
+};

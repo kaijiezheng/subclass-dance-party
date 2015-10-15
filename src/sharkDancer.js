@@ -10,9 +10,5 @@ makeSharkDancer.prototype.constructor = makeSharkDancer;
 
 makeSharkDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
-  // this.$node.css({
-  //   animation: "roll 3s infinite",
-  //   transform: "rotate(30deg)"
-  // });
 };
 
